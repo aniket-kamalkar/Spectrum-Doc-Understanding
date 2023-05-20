@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="in_InputPdfPath" Type="InArgument(x:String)" />
     <x:Property Name="in_SplitPdfOpPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_OutputFolderPath" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>486,836</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>674,2598</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Intialisation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -44,6 +45,7 @@
       <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.PDF.GetPDFPageCount</x:String>
       <x:String>UiPath.PDF.Activities.PDF</x:String>
       <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -92,15 +94,21 @@
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Intialisation" sap:VirtualizedContainerService.HintSize="496,771" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Intialisation" sap:VirtualizedContainerService.HintSize="594,2533" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="InputPdfPath" />
       <Variable x:TypeArguments="x:Int32" Name="PdfPageCount" />
       <Variable x:TypeArguments="x:Int32" Default="1" Name="Counter" />
-      <Variable x:TypeArguments="x:String" Default="Data\Split Files\" Name="SplitPdfOpPath" />
       <Variable x:TypeArguments="x:String" Name="SplitPdfPathWithName" />
+      <Variable x:TypeArguments="x:Boolean" Name="InputFileExist" />
+      <Variable x:TypeArguments="x:Boolean" Name="SplitFolderExist" />
+      <Variable x:TypeArguments="x:Boolean" Name="OutputFolderPathExist" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -108,8 +116,8 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Splitting of Pdf Started&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="532,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Splitting of Pdf Started&quot;]" />
+    <Assign DisplayName="Assign - Input Pdf Path" sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[InputPdfPath]</OutArgument>
       </Assign.To>
@@ -117,7 +125,72 @@
         <InArgument x:TypeArguments="x:String">[in_InputPdfPath]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <ui:FileExistsX DisplayName="File Exists" Exists="[InputFileExist]" sap:VirtualizedContainerService.HintSize="532,133" sap2010:WorkflowViewState.IdRef="FileExistsX_1" Path="[InputPdfPath]" />
+    <If Condition="[InputFileExist]" DisplayName="If - Input File does not exist" sap:VirtualizedContainerService.HintSize="532,52" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,148" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <upap:GetPDFPageCount DisplayName="Get PDF Page Count" FileName="[InputPdfPath]" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="GetPDFPageCount_2" PageCount="[PdfPageCount]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,178" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Throw Exception="[new BusinessRuleException(&quot;Input file doest not Exist&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Split Folder Path Exists" Exists="[SplitFolderExist]" sap:VirtualizedContainerService.HintSize="532,90" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_SplitPdfOpPath]" PathType="Folder" />
+    <If Condition="[not SplitFolderExist]" DisplayName="If - Split Folder does not exist" sap:VirtualizedContainerService.HintSize="532,472" sap2010:WorkflowViewState.IdRef="If_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="476,290" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Split Folder" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[in_SplitPdfOpPath]" />
+          <Assign DisplayName="Assign - Split Output Folder Path" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[SplitPdfPathWithName]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[in_SplitPdfOpPath+"Doc-{0}.pdf"]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <Assign DisplayName="Assign - Split Output Folder Path" sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[SplitPdfPathWithName]</OutArgument>
       </Assign.To>
@@ -125,8 +198,7 @@
         <InArgument x:TypeArguments="x:String">[in_SplitPdfOpPath+"Doc-{0}.pdf"]</InArgument>
       </Assign.Value>
     </Assign>
-    <upap:GetPDFPageCount DisplayName="Get PDF Page Count" FileName="[InputPdfPath]" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="GetPDFPageCount_2" PageCount="[PdfPageCount]" />
-    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Counter&lt;=PdfPageCount]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Counter&lt;=PdfPageCount]" DisplayName="While - Each PDF Split" sap:VirtualizedContainerService.HintSize="532,487" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
       <ui:InterruptibleWhile.Body>
         <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,321" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
@@ -135,7 +207,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <upap:ExtractPDFPageRange DisplayName="Extract PDF Page Range" FileName="[InputPdfPath]" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExtractPDFPageRange_1" OutputFileName="[String.Format((SplitPdfPathWithName),counter.ToString)]" Range="[Counter.ToString]" />
-          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign DisplayName="Assign - counter" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">[Counter]</OutArgument>
             </Assign.To>
@@ -147,11 +219,27 @@
       </ui:InterruptibleWhile.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InterruptibleWhile>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Splitting of Pdf Completed&quot;]" />
+    <ui:PathExists Resource="{x:Null}" DisplayName="Out put folder Path Exists" Exists="[OutputFolderPathExist]" sap:VirtualizedContainerService.HintSize="532,90" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[in_OutputFolderPath]" PathType="File" />
+    <If Condition="[not OutputFolderPathExist]" DisplayName="If - Output folder path does not exist" sap:VirtualizedContainerService.HintSize="532,350" sap2010:WorkflowViewState.IdRef="If_4">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Ouput FolderFolder" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[in_OutputFolderPath]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_9" />
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="532,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Splitting of Pdf Completed&quot;]" />
   </Sequence>
 </Activity>
