@@ -1,0 +1,940 @@
+﻿{
+  "DataContractVersion": "1.1",
+  "DocumentTypes": [
+    {
+      "DocumentTypeId": "SpectrumDU.Invoices.Invoice",
+      "Group": "Spectrum DU",
+      "Category": "Invoices",
+      "Name": "Invoice",
+      "OptionalUniqueIdentifier": "",
+      "TypeField": {
+        "FieldId": "SpectrumDU.Invoices.Invoice.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": [
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.Name",
+          "FieldName": "Name",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#038a18"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "a"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.VendorAddress",
+          "FieldName": "Vendor Address",
+          "IsMultiValue": false,
+          "Type": "Address",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#fa6616"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "v"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.BillingName",
+          "FieldName": "Billing Name",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#8a97a0"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "l"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.BillingAddress",
+          "FieldName": "Billing Address",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#6eb84a"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "g"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.BillingVATNumber",
+          "FieldName": "Billing VAT Number",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#e63baf"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "m"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.DueDate",
+          "FieldName": "Due Date",
+          "IsMultiValue": false,
+          "Type": "Date",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#b422cf"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "e"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.InvoiceNo",
+          "FieldName": "Invoice No",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#aeb266"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "c"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.PONumber",
+          "FieldName": "PO Number",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#22e5e7"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "r"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.PaymentTerms",
+          "FieldName": "Payment Terms",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#4e95db"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "y"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.Shippingcharges",
+          "FieldName": "Shipping charges",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#c0e042"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "h"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.TaxAmount",
+          "FieldName": "Tax Amount",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#15af62"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "x"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.NetAmount",
+          "FieldName": "Net Amount",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#e9c37b"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "q"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.Total",
+          "FieldName": "Total",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#b474b8"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "w"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.discount",
+          "FieldName": "discount",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#d250d7"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "j"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Invoices.Invoice.Table1",
+          "FieldName": "Invoice Table",
+          "IsMultiValue": false,
+          "Type": "Table",
+          "DeriveFieldsFormat": "",
+          "Components": [
+            {
+              "FieldId": "SpectrumDU.Invoices.Invoice.Table1.Description",
+              "FieldName": "Description",
+              "IsMultiValue": false,
+              "Type": "Text",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [],
+              "RuleSet": null,
+              "DefaultValue": ""
+            },
+            {
+              "FieldId": "SpectrumDU.Invoices.Invoice.Table1.Quantity",
+              "FieldName": "Quantity",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [],
+              "RuleSet": null,
+              "DefaultValue": ""
+            },
+            {
+              "FieldId": "SpectrumDU.Invoices.Invoice.Table1.UnitPrice",
+              "FieldName": "Unit Price",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [],
+              "RuleSet": null,
+              "DefaultValue": ""
+            },
+            {
+              "FieldId": "SpectrumDU.Invoices.Invoice.Table1.LineAmount",
+              "FieldName": "Line Amount",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [],
+              "RuleSet": null,
+              "DefaultValue": ""
+            }
+          ],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#e0c850"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "1"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "DocumentTypeId": "SpectrumDU.Receipts.Receipt",
+      "Group": "Spectrum DU",
+      "Category": "Receipts",
+      "Name": "Receipt",
+      "OptionalUniqueIdentifier": "",
+      "TypeField": {
+        "FieldId": "SpectrumDU.Receipts.Receipt.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": [
+        {
+          "FieldId": "SpectrumDU.Receipts.Receipt.ReceiptName",
+          "FieldName": "Receipt Name",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#038a18"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "r"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Receipts.Receipt.ReceiptNumber",
+          "FieldName": "Receipt Number",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#fa6616"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "e"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Receipts.Receipt.VendorAddress",
+          "FieldName": "Vendor Address",
+          "IsMultiValue": false,
+          "Type": "Address",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#8a97a0"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "v"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Receipts.Receipt.TaxAmount",
+          "FieldName": "Tax Amount",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#6eb84a"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "a"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Receipts.Receipt.Totalvalue",
+          "FieldName": "Total value",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#9252f9"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "l"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Receipts.Receipt.Currency",
+          "FieldName": "Currency",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#d2d550"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "y"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Receipts.Receipt.ReceiptTable",
+          "FieldName": "Receipt Table",
+          "IsMultiValue": false,
+          "Type": "Table",
+          "DeriveFieldsFormat": "",
+          "Components": [
+            {
+              "FieldId": "SpectrumDU.Receipts.Receipt.ReceiptTable.Description",
+              "FieldName": "Description",
+              "IsMultiValue": false,
+              "Type": "Text",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [],
+              "RuleSet": null,
+              "DefaultValue": ""
+            },
+            {
+              "FieldId": "SpectrumDU.Receipts.Receipt.ReceiptTable.Quantity",
+              "FieldName": "Quantity",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [],
+              "RuleSet": null,
+              "DefaultValue": ""
+            },
+            {
+              "FieldId": "SpectrumDU.Receipts.Receipt.ReceiptTable.LineAmount",
+              "FieldName": "Line Amount",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [],
+              "RuleSet": null,
+              "DefaultValue": ""
+            }
+          ],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#c8bd22"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "c"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "DocumentTypeId": "SpectrumDU.Forms.FormW-9",
+      "Group": "Spectrum DU",
+      "Category": "Forms",
+      "Name": "Form W-9",
+      "OptionalUniqueIdentifier": "",
+      "TypeField": {
+        "FieldId": "SpectrumDU.Forms.FormW-9.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": [
+        {
+          "FieldId": "SpectrumDU.Forms.FormW-9.Name",
+          "FieldName": "Name",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#038a18"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "a"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Forms.FormW-9.BusinessName",
+          "FieldName": "Business Name",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#fa6616"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "e"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Forms.FormW-9.Individual",
+          "FieldName": "Individual",
+          "IsMultiValue": false,
+          "Type": "Boolean",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#8a97a0"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "v"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Forms.FormW-9.CCorp",
+          "FieldName": "C Corp",
+          "IsMultiValue": false,
+          "Type": "Boolean",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#6eb84a"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "c"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Forms.FormW-9.SCorp",
+          "FieldName": "S Corp",
+          "IsMultiValue": false,
+          "Type": "Boolean",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#d7a76d"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "r"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Forms.FormW-9.Partnership",
+          "FieldName": "Partnership",
+          "IsMultiValue": false,
+          "Type": "Boolean",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#5cd483"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "h"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Forms.FormW-9.TrustEstate",
+          "FieldName": "Trust Estate",
+          "IsMultiValue": false,
+          "Type": "Boolean",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#506edb"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "q"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "DocumentTypeId": "SpectrumDU.Certificate-of-Filing.Certificate-of-Filing",
+      "Group": "Spectrum DU",
+      "Category": "Certificates",
+      "Name": "Certificate-of-filing",
+      "OptionalUniqueIdentifier": "",
+      "TypeField": {
+        "FieldId": "SpectrumDU.Certificate-of-Filing.Certificate-of-Filing.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": [
+        {
+          "FieldId": "SpectrumDU.Certificate-of-Filing.Certificate-of-Filing.FileNumber",
+          "FieldName": "File Number",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#038a18"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "l"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Certificate-of-Filing.Certificate-of-Filing.Dated",
+          "FieldName": "Dated",
+          "IsMultiValue": false,
+          "Type": "Date",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#fa6616"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "a"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "SpectrumDU.Certificate-of-Filing.Certificate-of-Filing.Effective",
+          "FieldName": "Effective",
+          "IsMultiValue": false,
+          "Type": "Date",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#8a97a0"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "e"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        }
+      ]
+    }
+  ],
+  "Groups": [
+    {
+      "Name": "Spectrum DU",
+      "Categories": [
+        "Invoices",
+        "Receipts",
+        "Forms",
+        "Certificates"
+      ]
+    }
+  ],
+  "SupportedLanguages": [
+    {
+      "Name": "Undetermined Language",
+      "Code": "und"
+    },
+    {
+      "Name": "Bulgarian",
+      "Code": "bul"
+    },
+    {
+      "Name": "Cantonese",
+      "Code": "yue"
+    },
+    {
+      "Name": "Danish",
+      "Code": "dan"
+    },
+    {
+      "Name": "Dutch",
+      "Code": "nld"
+    },
+    {
+      "Name": "English",
+      "Code": "eng"
+    },
+    {
+      "Name": "French",
+      "Code": "fra"
+    },
+    {
+      "Name": "Georgian",
+      "Code": "kat"
+    },
+    {
+      "Name": "German",
+      "Code": "deu"
+    },
+    {
+      "Name": "Greek",
+      "Code": "ell"
+    },
+    {
+      "Name": "Hebrew",
+      "Code": "heb"
+    },
+    {
+      "Name": "Hindi",
+      "Code": "hin"
+    },
+    {
+      "Name": "Italian",
+      "Code": "ita"
+    },
+    {
+      "Name": "Japanese",
+      "Code": "jpn"
+    },
+    {
+      "Name": "Korean",
+      "Code": "kor"
+    },
+    {
+      "Name": "Macedonian",
+      "Code": "mkd"
+    },
+    {
+      "Name": "Mandarin",
+      "Code": "zho"
+    },
+    {
+      "Name": "Marathi",
+      "Code": "mar"
+    },
+    {
+      "Name": "Norwegian",
+      "Code": "nor"
+    },
+    {
+      "Name": "Polish",
+      "Code": "pol"
+    },
+    {
+      "Name": "Portuguese",
+      "Code": "por"
+    },
+    {
+      "Name": "Romanian",
+      "Code": "ron"
+    },
+    {
+      "Name": "Russian",
+      "Code": "rus"
+    },
+    {
+      "Name": "Serbian",
+      "Code": "srp"
+    },
+    {
+      "Name": "Spanish",
+      "Code": "spa"
+    },
+    {
+      "Name": "Swedish",
+      "Code": "swe"
+    },
+    {
+      "Name": "Telugu",
+      "Code": "tel"
+    },
+    {
+      "Name": "Turkish",
+      "Code": "tur"
+    }
+  ]
+}
