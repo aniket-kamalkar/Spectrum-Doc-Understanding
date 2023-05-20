@@ -1,5 +1,5 @@
 {
-  "name": "DocumentUnderstandingTestCase",
+  "name": "Spectrum-Document-Understanding-Task",
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
