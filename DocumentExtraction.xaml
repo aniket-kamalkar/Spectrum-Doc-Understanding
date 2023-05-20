@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1286,3590</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1286,3386</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DocumentExtraction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -141,7 +141,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DocumentExtraction" sap:VirtualizedContainerService.HintSize="1296,3525" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DocumentExtraction" sap:VirtualizedContainerService.HintSize="1296,3589" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="p9:DocumentTaxonomy" Name="Taxonomy" />
       <Variable x:TypeArguments="s:String[]" Name="PdfFilesList" />
@@ -150,7 +150,11 @@
       <Variable x:TypeArguments="p6:ClassificationResult[]" Name="ClassificationResults" />
       <Variable x:TypeArguments="p4:Document" Name="DOM" />
       <Variable x:TypeArguments="x:String" Name="DigitizedOp" />
-      <Variable x:TypeArguments="x:String" Default="Data\ Output Files\" Name="OutPutFolderPath" />
+      <Variable x:TypeArguments="x:String" Name="OutPutFolderPath">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">Data\Output Files\</Literal>
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="x:String" Name="DocName" />
       <Variable x:TypeArguments="sd2:DataSet" Name="DataSetOp" />
       <Variable x:TypeArguments="p6:ExtractionResult" Name="ValidatedExtractionResults" />
@@ -170,13 +174,13 @@
         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_SliptPdfFolderPath)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1234,2884" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[PdfFilesList]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1234,2948" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[PdfFilesList]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="pdfFilePath" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1200,2698" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1200,2762" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -469,7 +473,7 @@
                 </p8:MachineLearningExtractor>
               </p5:DataExtractionScope.Extractors>
             </p5:DataExtractionScope>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1158,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut DisplayName="Comment Out - Validation" sap:VirtualizedContainerService.HintSize="1158,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
               <ui:CommentOut.Body>
                 <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,477" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
@@ -504,23 +508,16 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:LogMessage>
             <p5:ExportExtractionResults DataSet="[DataSetOp]" DisplayName="Export Extraction Results" ExtractionResult="[ExtractedResult]" sap:VirtualizedContainerService.HintSize="1158,174" sap2010:WorkflowViewState.IdRef="ExportExtractionResults_1" IncludeConfidence="False" IncludeOCRConfidence="False" />
-            <If Condition="[String.Equals(DocName,&quot;Invoice&quot;) = true OR String.Equals(DocName,&quot;Receipt&quot;) = true]" sap:VirtualizedContainerService.HintSize="1158,682" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[String.Equals(DocName,&quot;Invoice&quot;) = true OR String.Equals(DocName,&quot;Receipt&quot;) = true]" sap:VirtualizedContainerService.HintSize="1158,746" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,296" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence sap:VirtualizedContainerService.HintSize="376,360" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MergeDataTable Destination="[DataSetOp.Tables(0)]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[DataSetOp.Tables(2)]">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:MergeDataTable>
                   <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[DataSetOp.Tables(0)]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[DocName]" WorkbookPath="[OutPutFolderPath+&quot;FinalOutput.xlsx&quot;]" />
+                  <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[DataSetOp.Tables(2)]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[DocName+&quot; Table&quot;]" WorkbookPath="[OutPutFolderPath+&quot;FinalOutput.xlsx&quot;]" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -537,6 +534,12 @@
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1234,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Data Extraction Process Completed&quot;]" />
   </Sequence>
